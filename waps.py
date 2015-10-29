@@ -123,6 +123,7 @@ def run():
                                     logging.info('[CPC] status={0}'.format(response.status))
                                     is_clicked = True
                             if is_clicked:
+                                logging.info(str(time.localtime().tm_hour + int(time.altzone / 3600) + 8))
                                 logging.info('[Sleep] random time={0}'.format(sleep_time[time.localtime().tm_hour]))
                                 time.sleep(random.randint(1, sleep_time[time.localtime().tm_hour]))
                                 break
