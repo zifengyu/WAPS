@@ -7,6 +7,7 @@ import csv
 import logging
 
 import proxy
+import proxy1
 
 class MyHTMLParser(HTMLParser):
     def __init__(self):
@@ -83,12 +84,18 @@ def get_client():
 
 
 def get_proxy_list():
-    return proxy.run()
+    l1 = proxy1.run()
+    logging.info('[ProxyList] proxy1={0}'.format(len(l1)))
+
+    l2 = proxy.run()
+    l2 = l2[:len(l1) * 5 + 7]
+    logging.info('[ProxyList] proxy2={0}'.format(len(l2)))
+
+    return l1 + l2
 
 
 def run():
     proxy_list = get_proxy_list()
-    logging.info('[ProxyList] total={0}'.format(len(proxy_list)))
 
     sleep_time = [7200, 7200, 7200, 7200, 7200, 3600, 360, 253, 113, 53, 21, 7, 3, 3, 5, 5, 7, 5, 7, 3, 1, 7, 11, 13, 133, 3600]
 
