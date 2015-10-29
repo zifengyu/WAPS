@@ -1,0 +1,7 @@
+2015-10-29 11:50:53,384 INFO [ProxyList] total=1703
+2015-10-29 11:50:53,384 INFO [Proxy] ip=120.195.199.7 port=80
+2015-10-29 11:50:53,386 INFO [Client] app=['1e893136c07aaa5a3babaf8a3f3d26a6', '3.5', 'com.bbpp.unitconverter', '1.8.6'] phone=['865864011223990', '460004532115110', 'ZTE V970', 'ZTE', '540', '960', '4.0.4']
+2015-10-29 11:50:53,386 INFO [Client URL] app_id=1e893136c07aaa5a3babaf8a3f3d26a6&udid=865864011223990&imsi=460004532115110&net=mobile&base=wapx.cn&app_version=3.5&sdk_version=1.8.6&device_name=ZTE%20V970&device_brand=ZTE&y=b5d00831717bc27fcd877e90ab2a1cac&device_type=android&os_version=4.0.4&country_code=CN&language=zh&act=com.bbpp.unitconverter&channel=WAPS&device_width=540&device_height=960
+2015-10-29 11:50:54,175 INFO [Active] status=200
+2015-10-29 11:50:54,825 INFO [Show] status=200
+2015-10-29 11:50:54,826 INFO [CPC] url=http://app.wapx.cn/action/app/show_ad?log_id=10291150545408104290&ad_type=cpc&down_type=ad&channel=WAPS&advertiser_app_id=9b97a9ea4b6e2c64d62d1e9ae013c41c&publisher_app_id=1e893136c07aaa5a3babaf8a3f3d26a6&publisher_user_id=865864011223990&udid=865864011223990&app_id=1e893136c07aaa5a3babaf8a3f3d26a6&app_version=3.5&sdk_version=1.8.6&device_name=ZTE%20V970&device_type=android&os_version=4.0.4&country_code=CN&language=zh&act=com.bbpp.unitconverter&viewed_at=null&net=mobile&imsi=460004532115110&device_height=960&device_width=540&base=wapx.cn&imgMarker=0
