@@ -132,6 +132,7 @@ def run():
                     logging.info('[Sleep] time=20')
                     time.sleep(20)
                 else:
+                    logging.info(str(time.localtime().tm_hour + int(time.altzone / 3600) + 8))
                     logging.info('[Sleep] random time={0}'.format(sleep_time[time.localtime().tm_hour]))
                     time.sleep(random.randint(1, sleep_time[time.localtime().tm_hour]))
         except Exception, e:
