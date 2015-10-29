@@ -100,6 +100,9 @@ def run():
         client = get_client()
         logging.info('[Client URL] {0}'.format(client))
 
+        nh = int(time.localtime().tm_hour + int(time.altzone / 3600) + 8)
+        logging.info('[Time] hour={0}'.format(str(nh)))
+
         try:
             response, content = h.request('http://app.wapx.cn/action/connect/active?' + client + '&at=' + str(int(time.time() * 1000)), 'GET')
             logging.info('[Active] status={0}'.format(response.status))
@@ -123,18 +126,16 @@ def run():
                                     logging.info('[CPC] status={0}'.format(response.status))
                                     is_clicked = True
                             if is_clicked:
-                                logging.info(str(time.localtime().tm_hour + int(time.altzone / 3600) + 8))
-                                logging.info('[Sleep] random time={0}'.format(sleep_time[time.localtime().tm_hour]))
-                                time.sleep(random.randint(1, sleep_time[time.localtime().tm_hour]))
+                                logging.info('[Sleep] random time={0}'.format(sleep_time[nh]))
+                                time.sleep(random.randint(1, sleep_time[nh]))
                                 break
                     else:
                         break
                     logging.info('[Sleep] time=20')
                     time.sleep(20)
                 else:
-                    logging.info(str(time.localtime().tm_hour + int(time.altzone / 3600) + 8))
-                    logging.info('[Sleep] random time={0}'.format(sleep_time[time.localtime().tm_hour]))
-                    time.sleep(random.randint(1, sleep_time[time.localtime().tm_hour]))
+                    logging.info('[Sleep] random time={0}'.format(sleep_time[nh]))
+                    time.sleep(random.randint(1, sleep_time[nh]))
         except Exception, e:
             logging.error(e)
 
