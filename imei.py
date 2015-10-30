@@ -2,7 +2,7 @@ import random
 import csv
 
 head = '35823905539'
-device = 'LG-D820,LG,1080,1920,5.1.0'
+device = 'LG-D820,LG,1080,1920,5.0.1'
 
 def luhn_checksum(card_number):
     def digits_of(n):
