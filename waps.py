@@ -78,7 +78,7 @@ def get_client():
            '&device_width=' + device_width + \
            '&device_height=' + device_height
 
-    client = client.replace(' ', '%20')
+    client = client.replace(' ', '+')
 
     return client
 
@@ -97,7 +97,7 @@ def get_proxy_list():
 def run():
     proxy_list = get_proxy_list()
 
-    sleep_time = [7200, 7200, 7200, 7200, 7200, 3600, 360, 253, 113, 53, 21, 7, 3, 3, 5, 5, 7, 5, 7, 3, 1, 7, 11, 13, 133, 3600]
+    sleep_time = [7200, 7200, 7200, 7200, 7200, 3600, 360, 253, 113, 53, 21, 7, 3, 3, 5, 5, 1, 5, 1, 3, 1, 7, 11, 13, 133, 3600]
 
     for proxy_ip, proxy_port in proxy_list:
         logging.info('[Proxy] ip={0} port={1}'.format(proxy_ip, proxy_port))
@@ -126,7 +126,7 @@ def run():
                             is_clicked = False
                             for link in hp.links:
                                 if 'cpc' in link:
-                                    cpc_link = ('http://app.wapx.cn' + link).replace(' ', '%20')
+                                    cpc_link = ('http://app.wapx.cn' + link).replace(' ', '+')
                                     logging.info('[CPC] url={0}'.format(cpc_link))
                                     time.sleep(random.randint(1, 13))
                                     response, content = h.request(cpc_link, 'GET', redirections=10)
