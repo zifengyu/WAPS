@@ -127,6 +127,7 @@ def run():
                             for link in hp.links:
                                 if 'cpc' in link:
                                     cpc_link = ('http://app.wapx.cn' + link).replace(' ', '+')
+                                    cpc_link = cpc_link.replace('viewed_at=null', 'viewed_at=' + str(int(time.time() * 1000)))
                                     logging.info('[CPC] url={0}'.format(cpc_link))
                                     time.sleep(random.randint(1, 13))
                                     response, content = h.request(cpc_link, 'GET', redirections=10)
