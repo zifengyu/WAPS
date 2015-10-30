@@ -107,7 +107,7 @@ def run():
         client = get_client()
         logging.info('[Client URL] {0}'.format(client))
 
-        nh = int(time.localtime().tm_hour + int(time.altzone / 3600) + 8)
+        nh = int(time.localtime().tm_hour + int(time.altzone / 3600) + 8) % 24
         logging.info('[Time] hour={0}'.format(str(nh)))
 
         try:
