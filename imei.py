@@ -1,8 +1,8 @@
 import random
 import csv
 
-head = '86618402167'
-device = 'm2 note,Meizu,1080,1920,5.1'
+head = '86439902162'
+device = 'Huawei P7-L05,Huawei,1080,1920,4.4.2'
 
 
 def luhn_checksum(card_number):
@@ -20,7 +20,7 @@ def calculate_luhn(partial_card_number):
     check_digit = luhn_checksum(int(partial_card_number) * 10)
     return check_digit if check_digit == 0 else 10 - check_digit
 
-index = 101
+index = 100 + random.randint(1,20)
 
 imsi = []
 with open('imsi.csv') as f:
