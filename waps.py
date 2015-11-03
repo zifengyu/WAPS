@@ -95,7 +95,7 @@ def get_proxy_list():
     l3 = proxy2.run()
     logging.info('[ProxyList] proxy3={0}'.format(len(l3)))
 
-    return l1 + l3 + l2
+    return l2
 
 
 def run():

@@ -34,9 +34,9 @@ class MyHTMLParser(HTMLParser):
             self.status = 5
             self.port = data.strip()
             if re.match(r'\d+\.\d+\.\d+\.\d+', self.ip) and re.match(r'\d+', self.port):
-                exist_ips = ['.'.join(ip.split('.')[:2]) for ip, port in self.proxy_list]
-                if '.'.join(self.ip.split('.')[:2]) not in exist_ips:
-                    self.proxy_list.insert(random.randrange(len(self.proxy_list) + 1), (self.ip, self.port))
+                #exist_ips = ['.'.join(ip.split('.')[:2]) for ip, port in self.proxy_list]
+                #if '.'.join(self.ip.split('.')[:2]) not in exist_ips:
+                self.proxy_list.insert(random.randrange(len(self.proxy_list) + 1), (self.ip, self.port))
 
 
 def run():
@@ -53,7 +53,15 @@ def run():
                                           '&offset=' + str(i), 'GET')
         except Exception, e:
             logging.error(e)
-            return ll
+            l2 = []
+            l3 = []
+
+            for ip, port in ll:
+                if '.'.join(ip.split('.')[:2]) not in l3:
+                    l2.append((ip, port))
+                    l3.append(ip.split('.')[:2])
+            return l2
+
         l = []
         if response.status == 200:
             content = content.decode('utf-8').encode('ascii', 'ignore')
@@ -65,7 +73,15 @@ def run():
         else:
             break
 
-    return ll
+    l2 = []
+    l3 = []
+
+    for ip, port in ll:
+        if '.'.join(ip.split('.')[:2]) not in l3:
+            l2.append((ip, port))
+            l3.append(ip.split('.')[:2])
+
+    return l2
 
 if __name__ == "__main__":
     print run()
