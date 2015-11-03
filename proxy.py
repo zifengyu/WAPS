@@ -39,7 +39,7 @@ class MyHTMLParser(HTMLParser):
 
 def run():
     ll = []
-    h = httplib2.Http()
+    h = httplib2.Http(timeout=30)
 
     for i in range(0, 200, 100):
         try:

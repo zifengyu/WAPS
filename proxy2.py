@@ -50,7 +50,7 @@ class MyHTMLParser(HTMLParser):
 
 def run():
     ll = []
-    h = httplib2.Http()
+    h = httplib2.Http(timeout=30)
 
     try:
         response, content = h.request('http://www.proxy360.cn/Region/China', 'GET')

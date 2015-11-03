@@ -88,14 +88,14 @@ def get_proxy_list():
     l1 = proxy1.run()
     logging.info('[ProxyList] proxy1={0}'.format(len(l1)))
 
-    #l2 = proxy.run()
-    #l2 = l2[:len(l1) * 5 + 7]
-    #logging.info('[ProxyList] proxy2={0}'.format(len(l2)))
+    l2 = proxy.run()
+    l2 = l2[:len(l1) * 5 + 7]
+    logging.info('[ProxyList] proxy2={0}'.format(len(l2)))
 
     l3 = proxy2.run()
     logging.info('[ProxyList] proxy3={0}'.format(len(l3)))
 
-    return l3
+    return l1 + l3 + l2
 
 
 def run():
@@ -107,6 +107,7 @@ def run():
         logging.info('[Proxy] ip={0} port={1}'.format(proxy_ip, proxy_port))
         proxy_info = httplib2.ProxyInfo(httplib2.socks.PROXY_TYPE_HTTP_NO_TUNNEL, proxy_ip, int(proxy_port))
         h = httplib2.Http(timeout=15, proxy_info=proxy_info)
+        #h = httplib2.Http(timeout=15)
 
         client = get_client()
         logging.info('[Client URL] {0}'.format(client))
