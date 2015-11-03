@@ -8,6 +8,7 @@ import logging
 
 import proxy
 import proxy1
+import proxy2
 
 class MyHTMLParser(HTMLParser):
     def __init__(self):
@@ -87,11 +88,14 @@ def get_proxy_list():
     l1 = proxy1.run()
     logging.info('[ProxyList] proxy1={0}'.format(len(l1)))
 
-    l2 = proxy.run()
-    l2 = l2[:len(l1) * 5 + 7]
-    logging.info('[ProxyList] proxy2={0}'.format(len(l2)))
+    #l2 = proxy.run()
+    #l2 = l2[:len(l1) * 5 + 7]
+    #logging.info('[ProxyList] proxy2={0}'.format(len(l2)))
 
-    return l1 + l2
+    l3 = proxy2.run()
+    logging.info('[ProxyList] proxy3={0}'.format(len(l3)))
+
+    return l3
 
 
 def run():
