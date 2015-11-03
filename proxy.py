@@ -57,9 +57,9 @@ def run():
             l3 = []
 
             for ip, port in ll:
-                if '.'.join(ip.split('.')[:2]) not in l3:
+                if '.'.join(ip.split('.')[:3]) not in l3:
                     l2.append((ip, port))
-                    l3.append('.'.join(ip.split('.')[:2]))
+                    l3.append('.'.join(ip.split('.')[:3]))
             return l2
 
         l = []
@@ -77,9 +77,9 @@ def run():
     l3 = []
 
     for ip, port in ll:
-        if '.'.join(ip.split('.')[:2]) not in l3:
+        if '.'.join(ip.split('.')[:3]) not in l3:
             l2.append((ip, port))
-            l3.append('.'.join(ip.split('.')[:2]))
+            l3.append('.'.join(ip.split('.')[:3]))
 
     return l2
 
