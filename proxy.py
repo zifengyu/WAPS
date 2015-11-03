@@ -34,14 +34,16 @@ class MyHTMLParser(HTMLParser):
             self.status = 5
             self.port = data.strip()
             if re.match(r'\d+\.\d+\.\d+\.\d+', self.ip) and re.match(r'\d+', self.port):
-                self.proxy_list.insert(random.randrange(len(self.proxy_list) + 1), (self.ip, self.port))
+                exist_ips = [ip for ip, port in self.proxy_list]
+                if self.ip not in exist_ips:
+                    self.proxy_list.insert(random.randrange(len(self.proxy_list) + 1), (self.ip, self.port))
 
 
 def run():
     ll = []
     h = httplib2.Http(timeout=30)
 
-    for i in range(0, 200, 100):
+    for i in range(0, 2000, 100):
         try:
             response, content = h.request('http://proxydb.net/list?protocol=http'
                                           '&anonlvl=4&only_keep_alive=1&minavail=80'
