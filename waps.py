@@ -9,6 +9,7 @@ import logging
 import proxy
 import proxy1
 import proxy2
+import proxy3
 
 class MyHTMLParser(HTMLParser):
     def __init__(self):
@@ -95,13 +96,16 @@ def get_proxy_list():
     l3 = proxy2.run()
     logging.info('[ProxyList] proxy3={0}'.format(len(l3)))
 
-    return l1 + l2 + l3
+    l4 = proxy3.run()
+    logging.info('[ProxyList] proxy4={0}'.format(len(l4)))
+
+    return l4
 
 
 def run():
     proxy_list = get_proxy_list()
 
-    sleep_time = [7200, 7200, 7200, 7200, 7200, 3600, 360, 253, 113, 53, 21, 7, 3, 3, 5, 5, 1, 5, 1, 3, 1, 7, 11, 13, 133, 3600]
+    sleep_time = [7200, 7200, 7200, 7200, 7200, 3600, 360, 253, 113, 53, 21, 7, 3, 3, 5, 4, 1, 4, 1, 3, 1, 7, 11, 13, 133, 3600]
 
     for proxy_ip, proxy_port in proxy_list:
         logging.info('[Proxy] ip={0} port={1}'.format(proxy_ip, proxy_port))

@@ -1,3 +1,5 @@
+# coding=utf-8
+
 import httplib2
 from HTMLParser import HTMLParser
 import re
@@ -18,7 +20,7 @@ class MyHTMLParser(HTMLParser):
         if self.status == 0:
             if tag == "tr":
                 self.status = 1
-        elif self.status == 1 and tag == 'a':
+        elif self.status == 1 and tag == 'td':
             self.status = 2
         elif self.status == 3 and tag == 'td':
             self.status = 4
@@ -34,25 +36,27 @@ class MyHTMLParser(HTMLParser):
         elif self.status == 4:
             self.status = 5
             self.port = data.strip()
+        elif self.status == 5 and data.strip() == '高匿':
+            self.status = 6
             if re.match(r'\d+\.\d+\.\d+\.\d+', self.ip) and re.match(r'\d+', self.port):
                 #exist_ips = ['.'.join(ip.split('.')[:2]) for ip, port in self.proxy_list]
                 #if '.'.join(self.ip.split('.')[:2]) not in exist_ips:
                 self.proxy_list.insert(random.randrange(len(self.proxy_list) + 1), (self.ip, self.port))
+                #self.proxy_list.append((self.ip, self.port))
 
 
 def run():
     ll = []
+
     h = httplib2.Http(timeout=30)
 
-    for i in range(0, 10000, 100):
+    for i in range(1, 20):
+
         try:
+
             time.sleep(1)
-            response, content = h.request('http://proxydb.net/list?protocol=http'
-                                          '&anonlvl=4&only_keep_alive=1&minavail=80'
-                                          '&maxtime=0&limit=100&ip_filter=&port_filter='
-                                          '&host_filter=&country_filter=China&isp_filter='
-                                          '&via_filter='
-                                          '&offset=' + str(i), 'GET')
+            response, content = h.request('http://www.haodailiip.com/guonei/' + str(i), 'GET')
+
         except Exception, e:
             logging.error(e)
             l2 = []
@@ -65,15 +69,18 @@ def run():
             return l2
 
         l = []
+
         if response.status == 200:
-            content = content.decode('utf-8').encode('ascii', 'ignore')
+            #print content
+            #content = content.decode('utf-8').encode('ascii', 'ignore')
             hp = MyHTMLParser(l)
             hp.feed(content)
             hp.close()
+
         if len(l) > 0:
             ll.extend(l)
         else:
-            break
+            pass
 
     l2 = []
     l3 = []
