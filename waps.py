@@ -90,7 +90,7 @@ def get_proxy_list():
     logging.info('[ProxyList] proxy1={0}'.format(len(l1)))
 
     l2 = proxy.run()
-    l2 = l2[:len(l1) * 5 + 7]
+    #l2 = l2[:len(l1) * 5 + 7]
     logging.info('[ProxyList] proxy2={0}'.format(len(l2)))
 
     l3 = proxy2.run()
@@ -99,7 +99,7 @@ def get_proxy_list():
     l4 = proxy3.run()
     logging.info('[ProxyList] proxy4={0}'.format(len(l4)))
 
-    return l1 + l2 + l3 + l4
+    return l2 + l4 + l1 + l3
 
 
 def run():
