@@ -23,6 +23,8 @@ timeout()
 
 test123()
 {
+        python waps.py &
+        python waps.py &
         python waps.py
 }
 
