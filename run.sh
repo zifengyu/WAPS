@@ -5,7 +5,7 @@ mailSend()
 }
 timeout()
 {
-        waitfor=3
+        waitfor=60
         command=$*
         $command &
         commandpid=$!
