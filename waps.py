@@ -104,6 +104,7 @@ def get_proxy_list():
 
 def run():
     proxy_list = get_proxy_list()
+    random.shuffle(proxy_list)
     logging.info('[ProxyList] total={0}'.format(len(proxy_list)))
 
     sleep_time = [7200, 7200, 7200, 7200, 7200, 3600, 360, 253, 113, 53, 21, 7, 3, 3, 5, 4, 1, 4, 1, 3, 1, 7, 11, 13, 133, 3600]

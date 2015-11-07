@@ -5,7 +5,7 @@ mailSend()
 }
 timeout()
 {
-        waitfor=36000
+        waitfor=7200
         command=$*
         $command &
         commandpid=$!
@@ -18,8 +18,6 @@ timeout()
 
         kill $sleeppid > /dev/null 2>&1
 }
-
-#测试的函数
 
 test123()
 {
