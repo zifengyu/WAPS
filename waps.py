@@ -86,7 +86,7 @@ def get_client():
 
 
 def get_proxy_list():
-    l1 = proxy1.run()
+    l1 = proxy3.run()
     logging.info('[ProxyList] proxy1={0}'.format(len(l1)))
 
     l2 = proxy.run()
@@ -96,7 +96,7 @@ def get_proxy_list():
     l3 = proxy2.run()
     logging.info('[ProxyList] proxy3={0}'.format(len(l3)))
 
-    l4 = proxy3.run()
+    l4 = proxy1.run()
     logging.info('[ProxyList] proxy4={0}'.format(len(l4)))
 
     return l2 + l4 + l1 + l3
