@@ -50,11 +50,11 @@ def run():
 
     h = httplib2.Http(timeout=30)
 
-    for i in range(1, 20):
+    for i in range(1, 30):
 
         try:
 
-            time.sleep(random.randint(3, 5))
+            time.sleep(random.randint(3, 20))
             response, content = h.request('http://www.haodailiip.com/guonei/' + str(i), 'GET')
 
         except Exception, e:
