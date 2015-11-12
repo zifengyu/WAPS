@@ -28,4 +28,7 @@ test123()
         python waps.py
 }
 
-timeout test123
+while true
+do
+test123
+done
