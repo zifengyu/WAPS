@@ -54,7 +54,7 @@ def run():
 
         try:
 
-            time.sleep(random.randint(3, 20))
+            time.sleep(random.randint(3, 10))
             response, content = h.request('http://www.haodailiip.com/guonei/' + str(i), 'GET')
 
         except Exception, e:
