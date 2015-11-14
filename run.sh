@@ -25,6 +25,8 @@ test123()
         sleep 5
         python waps.py &
         sleep 5
+        python waps.py &
+        sleep 5
         python waps.py
 }
 
