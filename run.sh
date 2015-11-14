@@ -5,7 +5,7 @@ mailSend()
 }
 timeout()
 {
-        waitfor=10000
+        waitfor=36000
         command=$*
         $command &
         commandpid=$!
@@ -28,7 +28,4 @@ test123()
         python waps.py
 }
 
-while true
-do
-test123
-done
+timeout test123
