@@ -90,7 +90,6 @@ def get_proxy_list():
     logging.info('[ProxyList] proxy1={0}'.format(len(l1)))
 
     l2 = proxy.run()
-    #l2 = l2[:len(l1) * 5 + 7]
     logging.info('[ProxyList] proxy2={0}'.format(len(l2)))
 
     l3 = proxy2.run()
@@ -107,13 +106,14 @@ def run():
     random.shuffle(proxy_list)
     logging.info('[ProxyList] total={0}'.format(len(proxy_list)))
 
-    sleep_time = [7200, 7200, 7200, 7200, 7200, 3600, 360, 253, 113, 53, 21, 7, 3, 3, 5, 4, 1, 4, 1, 3, 1, 7, 11, 73, 133, 3600]
+    sleep_time = [7200, 7200, 7200, 7200, 7200, 3600, 360, 253, 113,
+                  53, 21, 7, 3, 3, 5, 4, 1, 4, 1, 3, 1, 7, 11, 73, 133, 3600]
 
     for proxy_ip, proxy_port in proxy_list:
         logging.info('[Proxy] ip={0} port={1}'.format(proxy_ip, proxy_port))
         proxy_info = httplib2.ProxyInfo(httplib2.socks.PROXY_TYPE_HTTP_NO_TUNNEL, proxy_ip, int(proxy_port))
-        h = httplib2.Http(timeout=15, proxy_info=proxy_info)
-        #h = httplib2.Http(timeout=15)
+        #h = httplib2.Http(timeout=15, proxy_info=proxy_info)
+        h = httplib2.Http(timeout=15)
 
         client = get_client()
         logging.info('[Client URL] {0}'.format(client))
@@ -122,7 +122,8 @@ def run():
         logging.info('[Time] hour={0}'.format(str(nh)))
 
         try:
-            response, content = h.request('http://app.wapx.cn/action/connect/active?' + client + '&at=' + str(int(time.time() * 1000)), 'GET')
+            response, content = h.request('http://app.wapx.cn/action/connect/active?' + client +
+                                          '&at=' + str(int(time.time() * 1000)), 'GET')
             logging.info('[Active] status={0}'.format(response.status))
 
             if response.status == 200:
@@ -130,7 +131,7 @@ def run():
                     response, content = h.request('http://app.wapx.cn/action/ad/show?' + client, 'GET')
                     logging.info('[Show] status={0}'.format(response.status))
                     if response.status == 200:
-                        if random.randint(1, 36) == 2:
+                        if random.randint(1, 32) == 2:
                             hp = MyHTMLParser()
                             hp.feed(content)
                             hp.close()
@@ -138,9 +139,10 @@ def run():
                             for link in hp.links:
                                 if 'cpc' in link:
                                     cpc_link = ('http://app.wapx.cn' + link).replace(' ', '+')
-                                    cpc_link = cpc_link.replace('viewed_at=null', 'viewed_at=' + str(int(time.time() * 1000)))
+                                    cpc_link = cpc_link.replace('viewed_at=null',
+                                                                'viewed_at=' + str(int(time.time() * 1000)))
                                     logging.info('[CPC] url={0}'.format(cpc_link))
-                                    time.sleep(random.randint(1, 16))
+                                    time.sleep(random.randint(1, 15))
                                     response, content = h.request(cpc_link, 'GET', redirections=10)
                                     logging.info('[CPC] status={0}'.format(response.status))
                                     is_clicked = True

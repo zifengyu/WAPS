@@ -71,8 +71,6 @@ def run():
         l = []
 
         if response.status == 200:
-            #print content
-            #content = content.decode('utf-8').encode('ascii', 'ignore')
             hp = MyHTMLParser(l)
             hp.feed(content)
             hp.close()
