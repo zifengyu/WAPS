@@ -112,8 +112,8 @@ def run():
     for proxy_ip, proxy_port in proxy_list:
         logging.info('[Proxy] ip={0} port={1}'.format(proxy_ip, proxy_port))
         proxy_info = httplib2.ProxyInfo(httplib2.socks.PROXY_TYPE_HTTP_NO_TUNNEL, proxy_ip, int(proxy_port))
-        #h = httplib2.Http(timeout=15, proxy_info=proxy_info)
-        h = httplib2.Http(timeout=15)
+        h = httplib2.Http(timeout=15, proxy_info=proxy_info)
+        #h = httplib2.Http(timeout=15)
 
         client = get_client()
         logging.info('[Client URL] {0}'.format(client))
