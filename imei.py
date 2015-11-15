@@ -1,8 +1,8 @@
 import random
 import csv
 
-head = '35423405031'
-device = 'HTC S720e,htccn_chs_2,720,1280,4.0.4'
+head = '86812902820'
+device = 'vivo X5M,vivo,720,1280,5.0'
 
 
 def luhn_checksum(card_number):
@@ -36,7 +36,7 @@ while index < 1000:
     p = head + str(index)
     p += str(calculate_luhn(p))
     f.write(p + ',' + imsi[i][0] + ',' + device + '\n')
-    index += random.randint(3, 59) + 1
+    index += random.randint(3, 47) + 1
     i += 1
 
 f.close()
