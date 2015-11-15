@@ -1,8 +1,10 @@
 import random
 import csv
 
-head = '86118401001'
-device = 'XPELL i9600,XPELLi9600,480,800,4.2.1'
+
+
+head = '86053002057'
+device = 'MOFUT F68 GQ,MOFUT_F68_GQ,480,800,4.2.2'
 
 
 def luhn_checksum(card_number):
