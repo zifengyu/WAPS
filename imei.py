@@ -2,8 +2,9 @@ import random
 import csv
 
 
-head = '86213002979'
-device = 'ZTE-T U809,ZTE,480,800,4.2.1'
+head = '86465901006'
+device = 'ZA-A900,alps,480,854,4.0.4'
+
 
 def luhn_checksum(card_number):
     def digits_of(n):
