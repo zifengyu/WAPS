@@ -131,7 +131,7 @@ def run():
                     response, content = h.request('http://app.wapx.cn/action/ad/show?' + client, 'GET')
                     logging.info('[Show] status={0}'.format(response.status))
                     if response.status == 200:
-                        if random.randint(1, 30) == 2:
+                        if random.randint(1, 3) == 2:
                             hp = MyHTMLParser()
                             hp.feed(content)
                             hp.close()
