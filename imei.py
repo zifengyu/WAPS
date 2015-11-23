@@ -1,8 +1,8 @@
 import random
 import csv
 
-head = '86686702134'
-device = 'Coolpad SS1-01,Coolpad,720,1280,4.4'
+head = '86053002057'
+device = 'MOFUT F68 GQ,MOFUT_F68_GQ,480,800,4.2.2'
 
 
 def luhn_checksum(card_number):
@@ -29,14 +29,19 @@ with open('imsi.csv') as f:
     for row in f_csv:
         imsi.append(row)
 
-f = open('imei.csv', 'w')
+f = open('phone.csv', 'a')
 i = 0
 
 while index < 1000:
     p = head + str(index)
     p += str(calculate_luhn(p))
-    f.write(p + ',' + imsi[i][0] + ',' + device + '\n')
-    index += random.randint(3, 19) + 1
+    f.write('\n' + p + ',' + imsi[i][0] + ',' + device)
+    index += random.randint(3, 97) + 1
     i += 1
 
+f.close()
+
+f = open('imsi.csv', 'w')
+for j in range(i, len(imsi)):
+    f.write(imsi[j][0] + '\n')
 f.close()
