@@ -1,8 +1,8 @@
 import random
 import csv
 
-head = '86053002057'
-device = 'MOFUT F68 GQ,MOFUT_F68_GQ,480,800,4.2.2'
+head = '35503305192'
+device = 'LG F240L,LG,1080,1920,4.1'
 
 
 def luhn_checksum(card_number):
