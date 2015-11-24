@@ -22,13 +22,13 @@ timeout()
 test123()
 {
         python waps.py &
-        sleep 5
+        sleep 9
         python waps.py &
-        sleep 5
+        sleep 9
         python waps.py &
-        sleep 5
+        sleep 9
         python waps.py &
-        sleep 5
+        sleep 9
         python waps.py
 }
 
