@@ -6,10 +6,11 @@ from HTMLParser import HTMLParser
 import csv
 import logging
 
-import proxy
 import proxy1
 import proxy2
 import proxy3
+import proxy4
+import proxy5
 
 class MyHTMLParser(HTMLParser):
     def __init__(self):
@@ -86,19 +87,22 @@ def get_client():
 
 
 def get_proxy_list():
-    l1 = proxy3.run()
+    l1 = proxy1.run()
     logging.info('[ProxyList] proxy1={0}'.format(len(l1)))
 
-    l2 = proxy.run()
+    l2 = proxy2.run()
     logging.info('[ProxyList] proxy2={0}'.format(len(l2)))
 
-    l3 = proxy2.run()
+    l3 = proxy3.run()
     logging.info('[ProxyList] proxy3={0}'.format(len(l3)))
 
-    l4 = proxy1.run()
+    l4 = proxy4.run()
     logging.info('[ProxyList] proxy4={0}'.format(len(l4)))
 
-    return l2 + l4 + l1 + l3
+    l5 = proxy5.run()
+    logging.info('[ProxyList] proxy5={0}'.format(len(l5)))
+
+    return l4
 
 
 def run():
