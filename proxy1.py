@@ -30,6 +30,7 @@ class MyHTMLParser(HTMLParser):
         if self.status == 2:
             self.status = 3
             self.ip = data.strip()
+            print self.ip
         elif self.status == 4:
             self.status = 5
             self.port = data.strip()
