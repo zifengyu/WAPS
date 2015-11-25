@@ -31,7 +31,7 @@ test123()
         python waps.py &
         sleep 9
         python waps.py &
-        sleep 3600
+        sleep 4000
 }
 
 timeout test123
