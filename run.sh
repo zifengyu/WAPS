@@ -34,4 +34,4 @@ test123()
         sleep 4000
 }
 
-timeout test123
+test123
