@@ -21,6 +21,7 @@ timeout()
 
 test123()
 {
+        python ping_jenkins.py
         python waps.py &
         sleep 9
         python waps.py &
