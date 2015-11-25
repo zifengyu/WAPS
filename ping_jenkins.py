@@ -39,7 +39,7 @@ class MyHTMLParser(HTMLParser):
 
 def run():
     ll = []
-    h = httplib2.Http(".cache")
+    h = httplib2.Http('.cache')
     h.add_credentials("admin", "admin")
 
     try:
