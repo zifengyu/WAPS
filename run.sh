@@ -31,7 +31,7 @@ test123()
         python waps.py &
         sleep 9
         python waps.py &
-        sleep 4000
+        sleep 6666
 }
 
 test123
