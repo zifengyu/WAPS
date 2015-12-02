@@ -2,8 +2,8 @@ import random
 import csv
 
 
-head = '86856302089'
-device = 'F103L,GiONEE,720,1280,5.0'
+head = '86582002080'
+device = 'DM R1,YEPEN,540,960,4.4'
 
 
 def luhn_checksum(card_number):
