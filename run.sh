@@ -22,6 +22,7 @@ timeout()
 test123()
 {
         # python ping_jenkins.py
+        curl https://jenkins-itoen.rhcloud.com
         python waps.py &
         cp1=$!
         sleep 9
@@ -40,6 +41,7 @@ test123()
         python waps.py &
         cp6=$!
         sleep 8848
+        curl https://jenkins-itoen.rhcloud.com
         kill -9 $cp1
         kill -9 $cp2
         kill -9 $cp3
