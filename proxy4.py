@@ -39,21 +39,21 @@ class MyHTMLParser(HTMLParser):
 
 def run():
     ll = []
-    h = httplib2.Http(timeout=30)
+    #h = httplib2.Http(timeout=30)
 
-    try:
-        response, content = h.request('https://proxy-list.org/english/search.php?'
-                                      'search=CN.elite&country=CN&type=elite&port=any&ssl=any', 'GET')
-    except Exception, e:
-        logging.error(e)
-        return ll
+    #try:
+    #    response, content = h.request('https://proxy-list.org/english/search.php?'
+    #                                  'search=CN.elite&country=CN&type=elite&port=any&ssl=any', 'GET')
+    #except Exception, e:
+    #    logging.error(e)
+    #    return ll
 
-    if response.status == 200:
-        content = content.decode('utf-8').encode('ascii', 'ignore')
-        hp = MyHTMLParser(ll)
-        hp.feed(content)
+    #if response.status == 200:
+    #    content = content.decode('utf-8').encode('ascii', 'ignore')
+    #    hp = MyHTMLParser(ll)
+    #    hp.feed(content)
         #print content
-        hp.close()
+    #    hp.close()
 
     return ll
 
