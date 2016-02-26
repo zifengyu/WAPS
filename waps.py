@@ -131,7 +131,7 @@ def run():
             logging.info('[Active] status={0}'.format(response.status))
 
             if response.status == 200:
-                for i in range(16):
+                for i in range(20):
                     response, content = h.request('http://app.wapx.cn/action/ad/show?' + client, 'GET')
                     logging.info('[Show] status={0}'.format(response.status))
                     if response.status == 200:
